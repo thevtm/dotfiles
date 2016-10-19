@@ -1,0 +1,20 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~', '~/.config', '~/.vim/bundle', '~/.ssh']
+
+- link:
+    ~/.Xresources: Xresources
+    ~/.zshrc : zshrc
+    ~/.tmux.conf: tmux.conf
+    ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
+    ~/.vimrc: vimrc
+    ~/.ssh/config: ssh
+    ~/.config/awesome: awesome
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [vim +PluginInstall +qall, Installing Vundle plugins]
+
