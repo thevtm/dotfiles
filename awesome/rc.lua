@@ -151,17 +151,21 @@ mytextclock = lain.widgets.abase({
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Battery
-baticon = wibox.widget.imagebox(beautiful.widget_batt)
-batwidget = lain.widgets.bat({
-  timeout = 31,
-  settings = function()
-    perc = bat_now.perc .. " "
-    if bat_now.ac_status == 1 then
-      perc = perc .. "Plug "
+hasbattery = select(3, os.execute('[ -d /sys/module/battery ]')) == 0
+
+if hasbattery then
+  baticon = wibox.widget.imagebox(beautiful.widget_batt)
+  batwidget = lain.widgets.bat({
+    timeout = 31,
+    settings = function()
+      perc = bat_now.perc .. " "
+      if bat_now.ac_status == 1 then
+        perc = perc .. "Plug "
+      end
+      widget:set_text(perc .. bat_now.time)
     end
-    widget:set_text(perc .. bat_now.time)
-  end
-})
+  })
+end
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
@@ -273,16 +277,24 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    
     right_layout:add(cpuicon)
     right_layout:add(cpuwidget)
+    
     right_layout:add(memicon)
     right_layout:add(memwidget)
+    
     right_layout:add(volicon)
     right_layout:add(volumewidget)
-    right_layout:add(baticon)
-    right_layout:add(batwidget)
+
+    if hasbattery then
+      right_layout:add(baticon)
+      right_layout:add(batwidget)
+    end
+
     --right_layout:add(clockicon)
     right_layout:add(mytextclock)
+    
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
