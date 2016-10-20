@@ -133,6 +133,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 markup = lain.util.markup
 
 -- Create a textclock widget
+clockicon = wibox.widget.imagebox(beautiful.widget_clock)
 mytextclock = lain.widgets.abase({
   timeout  = 60,
   cmd      = "date +'%a %d %b %R'",
@@ -142,12 +143,25 @@ mytextclock = lain.widgets.abase({
 
     for i=1,3 do t_output = t_output .. " " .. o_it(i) end
 
-    widget:set_markup(t_output .. " " .. o_it(1) .. " ")
+    widget:set_markup(markup("#7788AF", t_output) .. " " .. markup("#DE5E1E", o_it(1)) .. " ")
   end
 })
 
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
+
+-- Battery
+baticon = wibox.widget.imagebox(beautiful.widget_batt)
+batwidget = lain.widgets.bat({
+  timeout = 31,
+  settings = function()
+    perc = bat_now.perc .. " "
+    if bat_now.ac_status == 1 then
+      perc = perc .. "Plug "
+    end
+    widget:set_text(perc .. bat_now.time)
+  end
+})
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
@@ -265,6 +279,9 @@ for s = 1, screen.count() do
     right_layout:add(memwidget)
     right_layout:add(volicon)
     right_layout:add(volumewidget)
+    right_layout:add(baticon)
+    right_layout:add(batwidget)
+    --right_layout:add(clockicon)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
