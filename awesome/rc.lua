@@ -117,8 +117,8 @@ mymainmenu = awful.menu({
   items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
     { "open terminal", terminal },
-    { "Reboot", "reboot" }, 
-    { "Shutdown", "shutdown -P 00" }, 
+    { "Reboot", "systemctl reboot" }, 
+    { "Shutdown", "systemctl poweroff"}, 
   }
 })
 
@@ -377,8 +377,11 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Rofi
-    awful.key({ modkey            }, "Return", function() awful.util.spawn('j4-dmenu-desktop --dmenu="rofi -dmenu -i"') end),
+    awful.key({ modkey            }, "Return", function() awful.util.spawn('j4-dmenu-desktop --dmenu="rofi -show run -i"') end),
     awful.key({ modkey            }, "BackSpace", function() awful.util.spawn('rofi -show window -i') end),
+
+    -- Logout menu
+    awful.key({                   }, "XF86PowerOff", function() awful.util.spawn('rofi-logout') end),
 
     -- Volume
     awful.key({                   }, "XF86AudioRaiseVolume", function ()

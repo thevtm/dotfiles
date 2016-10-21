@@ -1,5 +1,5 @@
-# Special directories
-hash -d NdC=~/Documents/numeros-do-cartola
+# Path
+PATH=$HOME/bin:$PATH
 
 # Install zplug if not presente
 if [[ ! -d ~/.zplug ]]; then
@@ -70,4 +70,4 @@ eval "$(fasd --init auto)"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f ~/.local/.zshrc ]] && source ~/.local/.zshrc
