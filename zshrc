@@ -1,6 +1,3 @@
-# Path
-PATH=$HOME/bin:$PATH
-
 # Install zplug if not presente
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
