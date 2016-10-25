@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Path
-PATH=$HOME/bin:$PATH
+PATH=$HOME/.bin:$PATH
 
 
 

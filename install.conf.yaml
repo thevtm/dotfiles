@@ -6,7 +6,7 @@
 - clean: ['~', '~/.config', '~/.vim/bundle', '~/.ssh']
 
 - link:
-    ~/bin: bin
+    ~/.bin: bin
     ~/.profile: profile
     ~/.Xresources: Xresources
     ~/.zshrc : zshrc
