@@ -170,21 +170,24 @@ end
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volumewidget = lain.widgets.alsa({
-    settings = function()
-        if volume_now.status == "off" then
-            volume_now.level = volume_now.level .. "M"
-        end
+  settings = function()
+    local format = "%3d%s"
+    local mute_str = " "
 
-        widget:set_markup(markup("#7493d2", volume_now.level))
+    if volume_now.status == "off" then
+      mute_str = "M"
     end
+
+    widget:set_markup(markup("#7493d2", string.format(format, volume_now.level, mute_str)))
+  end
 })
 
--- CPU
+-- SYS LOAD
 cpuicon = wibox.widget.imagebox()
 cpuicon:set_image(beautiful.widget_cpu)
-cpuwidget = lain.widgets.cpu({
+cpuwidget = lain.widgets.sysload({
     settings = function()
-        widget:set_markup(markup("#e33a6e", cpu_now.usage))
+        widget:set_markup(markup("#e33a6e", string.format("%.2f %.1f %.1f", load_1, load_5, load_15)))
     end
 })
 
@@ -192,7 +195,7 @@ cpuwidget = lain.widgets.cpu({
 memicon = wibox.widget.imagebox(beautiful.widget_mem)
 memwidget = lain.widgets.mem({
     settings = function()
-        widget:set_markup(markup("#e0da37", mem_now.perc))
+        widget:set_markup(markup("#e0da37", string.format("%3d", mem_now.perc)))
     end
 })
 
