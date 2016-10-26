@@ -7,7 +7,7 @@
 
 - link:
     ~/.bin: bin
-    ~/.profile: profile
+    ~/.zprofile: zprofile
     ~/.Xresources: Xresources
     ~/.zshrc : zshrc
     ~/.tmux.conf: tmux.conf
