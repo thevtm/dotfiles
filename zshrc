@@ -25,15 +25,15 @@ zplug "plugins/node", from:oh-my-zsh
 zplug "plugins/npm", from:oh-my-zsh
 zplug "plugins/rsync", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
+#zplug "plugins/tmux", from:oh-my-zsh
 
 
 
 # zsh-user
-zplug "zsh-users/zsh-completions", nice:12
-zplug "zsh-users/zsh-syntax-highlighting", nice:12
-zplug "zsh-users/zsh-autosuggestions", nice:12
-zplug "zsh-users/zsh-history-substring-search", nice:10
+zplug "zsh-users/zsh-completions", defer:3
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-autosuggestions", defer:3
+zplug "zsh-users/zsh-history-substring-search", defer:2
 
 
 # theme
@@ -48,7 +48,7 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load # --verbose
 
 # Autocomplete from man pages
 #zstyle ':completion:*:manuals'    separate-sections true
@@ -62,6 +62,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Fasd
 eval "$(fasd --init auto)"
+alias v='f -e vim'
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
