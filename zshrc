@@ -69,3 +69,20 @@ alias v='f -e vim'
 
 # Local config
 [[ -f ~/.local/.zshrc ]] && source ~/.local/.zshrc
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# apex
+_apex()  {
+  COMPREPLY=()
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local opts="$(apex autocomplete -- ${COMP_WORDS[@]:1})"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+  return 0
+}
+
+complete -F _apex apex
+
