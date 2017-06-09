@@ -16,6 +16,7 @@
     ~/.vimrc: vimrc
     ~/.ssh/config: ssh
     ~/.config/awesome: awesome
+    ~/.config/Code/User: VSCode
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
