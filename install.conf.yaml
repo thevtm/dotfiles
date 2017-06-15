@@ -17,7 +17,7 @@
     ~/.ssh/config: ssh
     ~/.config/awesome: awesome
     ~/.config/Code/User: VSCode
-
+    ~/.config/termite/config: termite
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [vim +PluginInstall +qall, Installing Vundle plugins]
