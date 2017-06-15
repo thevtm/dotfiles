@@ -37,6 +37,7 @@ zplug "zsh-users/zsh-history-substring-search", defer:2
 
 
 # theme
+POWERLEVEL9K_MODE='awesome-fontconfig'
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # Install plugins if there are plugins that have not been installed
@@ -84,5 +85,5 @@ _apex()  {
   return 0
 }
 
-complete -F _apex apex
+compdef _apex apex
 
