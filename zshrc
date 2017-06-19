@@ -38,6 +38,15 @@ zplug "zsh-users/zsh-history-substring-search", defer:2
 
 # theme
 POWERLEVEL9K_MODE='awesome-fontconfig'
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+
+export DEFAULT_USER="$USER"
+
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # Install plugins if there are plugins that have not been installed
