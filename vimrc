@@ -36,12 +36,14 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Show line numbers
+set number
 
 " Enable syntax highlighting
 :syntax on
 
 " Identation
-set expandtab " tabs to spaces
+"set expandtab " tabs to spaces
 set shiftwidth=2
 set softtabstop=2
 set noautoindent
