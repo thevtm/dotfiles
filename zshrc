@@ -96,3 +96,5 @@ _apex()  {
 
 compdef _apex apex
 
+# thefuck
+eval $(thefuck --alias)
