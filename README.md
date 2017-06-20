@@ -2,9 +2,10 @@
 
 ## Fonts
 
-* DejaVu: [ttf-dejavu](https://www.archlinux.org/packages/extra/any/ttf-dejavu/)
+* DejaVu: Base [ttf-dejavu](https://www.archlinux.org/packages/extra/any/ttf-dejavu/)
+* Source Code Pro: Monospace [adobe-source-code-pro-fonts](https://www.archlinux.org/packages/extra/any/adobe-source-code-pro-fonts/)
+* Terminus: for PowerArrow (Awesome WM theme) [terminus-font](https://www.archlinux.org/packages/community/any/terminus-font/)
 * Font Awesome: [ttf-font-awesome](https://aur.archlinux.org/packages/ttf-font-awesome/)
-* Source Code Pro: [adobe-source-code-pro-fonts](https://www.archlinux.org/packages/extra/any/adobe-source-code-pro-fonts/)
 
 ## Shell
 
