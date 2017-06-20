@@ -23,7 +23,6 @@
 * [xorg-xinit](https://wiki.archlinux.org/index.php/Xinit) xorg initialization
 * [awesome](https://wiki.archlinux.org/index.php/Awesome) tiled window manager
 * [rofi](https://github.com/DaveDavenport/rofi) window switcher, run dialog, etc
-* [j4-dmenu-desktop](https://github.com/enkore/j4-dmenu-desktop) used by rofi to get the list of programs
 
 ## Audio
 
