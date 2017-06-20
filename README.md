@@ -12,6 +12,11 @@ Plugin Manager: [zplug](https://github.com/zplug/zplug)
 
 Theme: [Powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 
+### Productivity
+
+* [fasd](https://github.com/clvv/fasd)
+* [thefuck](https://github.com/nvbn/thefuck)
+
 ## Audio
 
 [ALSA](https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture): alsa-util
