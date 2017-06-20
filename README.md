@@ -24,6 +24,11 @@
 * [awesome](https://wiki.archlinux.org/index.php/Awesome) tiled window manager
 * [rofi](https://github.com/DaveDavenport/rofi) window switcher, run dialog, etc
 
+## Network
+
+* [networkmanager](https://wiki.archlinux.org/index.php/NetworkManager) handle all things related to networks for both wired and wireless
+* [network-manager-applet](https://wiki.archlinux.org/index.php/NetworkManager#nm-applet) useful tool to configure Network Manager
+
 ## Audio
 
 [ALSA](https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture): [alsa-utils](https://www.archlinux.org/packages/extra/i686/alsa-utils/)
