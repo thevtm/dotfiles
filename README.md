@@ -12,3 +12,6 @@ Plugin Manager: [zplug](https://github.com/zplug/zplug)
 
 Theme: [Powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 
+## Audio
+
+[ALSA](https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture): alsa-util
