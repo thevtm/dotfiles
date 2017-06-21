@@ -1,0 +1,17 @@
+#!/bin/sh
+
+ROFI_FASD_BROWSER_OPEN_CMD="nautilus"
+
+(>&2 echo "in: '$@'")
+
+if [ -z $@ ]; then
+  echo "$(fasd -dlR)"
+
+elif [ -d "$@" ]; then
+  coproc ( "${ROFI_FASD_BROWSER_OPEN_CMD}" "$@" )
+  
+else
+  (>&2 echo "Directory '$@' does not exist.")
+
+fi
+
