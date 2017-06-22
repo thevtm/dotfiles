@@ -7,9 +7,10 @@
 
 - link:
     ~/.zprofile: zprofile
-    ~/.xinitrc: xinitrc
-    ~/.Xresources: Xresources
     ~/.zshrc : zshrc
+    ~/.xinitrc: xinitrc
+    ~/.xprofile: xinitrc
+    ~/.Xresources: Xresources
     ~/.tmux.conf: tmux.conf
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc: vimrc
