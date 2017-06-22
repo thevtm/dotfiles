@@ -127,6 +127,9 @@ local has_battery = select(3, os.execute('[ -d /sys/module/battery ]')) == 0
 local battery = has_battery and require("widgets.battery") or nil
 local my_battery = has_battery and battery.build() or nil
 
+-- Layout Box
+local layoutbox = require("widgets.layoutbox")
+
 -- Separators
 local arrow = lain.util.separators.arrow_left
 
@@ -148,15 +151,10 @@ function beautiful.at_screen_connect(s)
 
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
-	-- Create an imagebox widget which will contains an icon indicating which layout we're using.
+
 	-- We need one layoutbox per screen.
-	s.mylayoutbox = awful.widget.layoutbox(s)
-	s.mylayoutbox:buttons(gears.table.join(
-		awful.button({ }, 1, function () awful.layout.inc( 1) end),
-		awful.button({ }, 3, function () awful.layout.inc(-1) end),
-		awful.button({ }, 4, function () awful.layout.inc( 1) end),
-		awful.button({ }, 5, function () awful.layout.inc(-1) end)
-	))
+	s.my_layoutbox = layoutbox.build(s)
+
 	-- Create a taglist widget
 	s.my_taglist = taglist.build(s)
 
@@ -201,7 +199,7 @@ function beautiful.at_screen_connect(s)
 
 			arrow(clock.bg_color, "alpha"),
 
-			s.mylayoutbox,
+			s.my_layoutbox,
 		},
 	}
 end
