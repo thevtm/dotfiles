@@ -18,6 +18,9 @@
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": true,
 
+  // When enabled, will trim trailing whitespace when saving a file.
+  "files.trimTrailingWhitespace": true,
+
   "editor.quickSuggestions": {
     "other": true,
     "comments": true,
