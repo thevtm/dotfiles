@@ -7,5 +7,15 @@
   {
     "key": "ctrl+shift+[BracketLeft]",
     "command": "-workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+/",
+    "command": "-editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
