@@ -119,9 +119,9 @@ local cpu = require("widgets.cpu")
 local my_cpu = cpu.build()
 
 -- Battery
---hasbattery = select(3, os.execute('[ -d /sys/module/battery ]')) == 0
-local battery = require("widgets.battery")
-local my_battery = battery.build()
+local has_battery = select(3, os.execute('[ -d /sys/module/battery ]')) == 0
+local battery = has_battery and require("widgets.battery") or nil
+local my_battery = has_battery and battery.build() or nil
 
 -- Separators
 local arrow = lain.util.separators.arrow_left
@@ -186,10 +186,10 @@ function beautiful.at_screen_connect(s)
 			arrow(cpu.bg_color, memory.bg_color),
 			wibox.container.background(wibox.container.margin(wibox.widget { memory.icon, my_memory.widget, layout = wibox.layout.align.horizontal }, 2, 3), memory.bg_color),
 
-			arrow(memory.bg_color, battery.bg_color),
-			wibox.container.background(wibox.container.margin(wibox.widget { battery.icon, my_battery.widget, layout = wibox.layout.align.horizontal }, 3, 3), battery.bg_color),
+			(has_battery and arrow(memory.bg_color, battery.bg_color) or nil),
+			(has_battery and wibox.container.background(wibox.container.margin(wibox.widget { battery.icon, my_battery.widget, layout = wibox.layout.align.horizontal }, 3, 3), battery.bg_color) or nil),
 
-			arrow(battery.bg_color, volume.bg_color),
+			arrow((has_battery and battery.bg_color or memory.bg_color), volume.bg_color),
 			wibox.container.background(wibox.container.margin(my_volume.bar, 7, 7, 5, 5), volume.bg_color),
 
 			arrow(volume.bg_color, clock.bg_color),
