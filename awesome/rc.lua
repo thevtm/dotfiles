@@ -464,11 +464,20 @@ globalkeys = awful.util.table.join(
 	--]]
 	-- Prompt
 	awful.key({ modkey }, "Return",
-				function () awful.util.spawn('rofi -i -show drun -modi drun') end,
-				{description = "run prompt", group = "launcher"}),
+	  function () awful.util.spawn('rofi -i -show drun -modi drun') end,
+	  {description = "run prompt with desktop entries", group = "launcher"}),
 
-	awful.key({ modkey }, "BackSpace", function() awful.util.spawn('rofi -i -show fb -modi fb:"~/.dotfiles/bin/rofi-fasd-browser"') end,
-				{description = "launch filebrowser on directory", group = "launcher"}),
+	awful.key({ modkey, "Shift" }, "Return",
+	  function () awful.util.spawn('rofi -i -show run') end,
+	  {description = "run prompt", group = "launcher"}),
+
+	awful.key({ modkey }, "BackSpace",
+	  function() awful.util.spawn('rofi -i -show fb -modi fb:"~/.dotfiles/bin/rofi-fasd-browser"') end,
+	  {description = "launch filebrowser on directory", group = "launcher"}),
+
+	awful.key({ modkey, "Shift" }, "BackSpace",
+	  function () awful.util.spawn('rofi -i -show window') end,
+	  {description = "window switcher", group = "launcher"}),
 
 	awful.key({ modkey }, "x",
 				function ()
