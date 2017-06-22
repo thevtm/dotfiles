@@ -1,3 +1,6 @@
+# Disable XON/XOFF
+stty -ixon
+
 # Install zplug if not presente
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
