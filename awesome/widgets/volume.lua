@@ -1,3 +1,4 @@
+local gears = require("gears")
 local awful = require("awful")
 local beautiful = require("beautiful")
 local lain = require("lain")
@@ -21,7 +22,7 @@ function M.build()
 
 	volume.tooltip.wibox.fg = beautiful.fg_focus
 	volume.tooltip.wibox.font = beautiful.font
-	volume.bar:buttons(awful.util.table.join (
+	volume.bar:buttons(gears.table.join (
 		awful.button({}, 1, function()
 			awful.spawn.with_shell(string.format("%s -e alsamixer", terminal))
 		end),

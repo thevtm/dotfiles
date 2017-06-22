@@ -78,9 +78,7 @@ require("layouts")
 --- }}}
 
 
---- {{{
-require("tags")
---- }}}
+
 
 
 --- {{{ Beautiful initialization + Theme
@@ -98,6 +96,12 @@ local my_awesome_menu = require("menu").build(awesome)
 
 -- Launcher
 local my_launcher = require('widgets.launcher').build(my_awesome_menu)
+
+-- Taglist
+local taglist = require("widgets.taglist")
+
+-- Tasklist
+local tasklist = require("widgets.tasklist")
 
 -- Binary clock
 local clock = require('widgets.clock')
@@ -140,24 +144,24 @@ function beautiful.at_screen_connect(s)
 	gears.wallpaper.maximized(wallpaper, s, true)
 
 	-- Tags
-	awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
+	awful.tag(config.tag_names, s, awful.layout.layouts[1])
 
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
 	-- Create an imagebox widget which will contains an icon indicating which layout we're using.
 	-- We need one layoutbox per screen.
 	s.mylayoutbox = awful.widget.layoutbox(s)
-	s.mylayoutbox:buttons(awful.util.table.join(
+	s.mylayoutbox:buttons(gears.table.join(
 		awful.button({ }, 1, function () awful.layout.inc( 1) end),
 		awful.button({ }, 3, function () awful.layout.inc(-1) end),
 		awful.button({ }, 4, function () awful.layout.inc( 1) end),
 		awful.button({ }, 5, function () awful.layout.inc(-1) end)
 	))
 	-- Create a taglist widget
-	s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+	s.my_taglist = taglist.build(s)
 
 	-- Create a tasklist widget
-	s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
+	s.my_tasklist = tasklist.build(s)
 
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s, height = 16, bg = beautiful.bg_normal, fg = beautiful.fg_normal })
@@ -169,12 +173,12 @@ function beautiful.at_screen_connect(s)
 			layout = wibox.layout.fixed.horizontal,
 			--spr,
 			my_launcher,
-			s.mytaglist,
+			s.my_taglist,
 			s.mypromptbox,
 			spr,
 		},
 
-		s.mytasklist, -- Middle widget
+		s.my_tasklist, -- Middle widget
 
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
@@ -222,15 +226,15 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) 
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(awful.util.table.join(
-	awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end),
+root.buttons(gears.table.join(
+	awful.button({ }, 3, function () my_awesome_menu:toggle() end),
 	awful.button({ }, 4, awful.tag.viewprev),
 	awful.button({ }, 5, awful.tag.viewnext)
 ))
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = awful.util.table.join(
+globalkeys = gears.table.join(
 	-- Take a screenshot
 	-- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
 	awful.key({                   }, "Print", function() os.execute("screenshot") end),
@@ -292,7 +296,7 @@ globalkeys = awful.util.table.join(
 		end),
 	--]]
 
-	--awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
+	--awful.key({ modkey,           }, "w", function () awful.util.my_awesome_menu:show() end,
 	--          {description = "show main menu", group = "awesome"}),
 
 	-- Layout manipulation
@@ -492,7 +496,7 @@ globalkeys = awful.util.table.join(
 	--]]
 )
 
-clientkeys = awful.util.table.join(
+clientkeys = gears.table.join(
 	--awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client                         ),
 	awful.key({ modkey,           }, "f",
 		function (c)
@@ -530,7 +534,7 @@ clientkeys = awful.util.table.join(
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 5 do
-	globalkeys = awful.util.table.join(globalkeys,
+	globalkeys = gears.table.join(globalkeys,
 		-- View tag only.
 		awful.key({ modkey }, "#" .. i + 9,
 					function ()
@@ -576,7 +580,7 @@ for i = 1, 5 do
 	)
 end
 
-clientbuttons = awful.util.table.join(
+clientbuttons = gears.table.join(
 	awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
 	awful.button({ modkey }, 1, awful.mouse.client.move),
 	awful.button({ modkey }, 3, awful.mouse.client.resize))
@@ -647,7 +651,7 @@ client.connect_signal("request::titlebars", function(c)
 
 	-- Default
 	-- buttons for the titlebar
-	local buttons = awful.util.table.join(
+	local buttons = gears.table.join(
 		awful.button({ }, 1, function()
 			client.focus = c
 			c:raise()
