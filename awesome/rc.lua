@@ -26,7 +26,7 @@ if awesome.startup_errors then
 	naughty.notify({
 		preset = naughty.config.presets.critical,
 		title = "Oops, there were errors during startup!",
-		text = awesome.startup_errors 
+		text = awesome.startup_errors
 	})
 end
 
@@ -341,7 +341,7 @@ globalkeys = awful.util.table.join(
 				{description = "open a terminal", group = "launcher"}),
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 				{description = "reload awesome", group = "awesome"}),
-	awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+	awful.key({ modkey, "Shift"   }, "w", awesome.quit,
 				{description = "quit awesome", group = "awesome"}),
 
 	awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -491,7 +491,7 @@ clientkeys = awful.util.table.join(
 			c:raise()
 		end,
 		{description = "toggle fullscreen", group = "client"}),
-	awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
+	awful.key({ modkey,           }, "w",      function (c) c:kill()                         end,
 				{description = "close", group = "client"}),
 	awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
 				{description = "toggle floating", group = "client"}),
