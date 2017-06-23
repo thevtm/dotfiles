@@ -17,6 +17,7 @@
 * [fasd](https://github.com/clvv/fasd) offers quick access to files and directories for POSIX shells
 * [thefuck](https://github.com/nvbn/thefuck) corrects your previous console command
 * [xsel](https://github.com/kfish/xsel) shell to clipboard
+* [trash-cli](https://github.com/andreafrancia/trash-cli) trash functionality for cli
 
 ## Window Manager
 

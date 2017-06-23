@@ -73,7 +73,11 @@ COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
-# Fasd
+
+# trash-cli
+alias rm='echo "This is not the command you are looking for. Use trash-put."; false'
+
+# fasd
 eval "$(fasd --init auto)"
 alias v='f -e vim'
 
