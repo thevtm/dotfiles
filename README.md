@@ -18,6 +18,7 @@
 * [thefuck](https://github.com/nvbn/thefuck) corrects your previous console command
 * [xsel](https://github.com/kfish/xsel) shell to clipboard
 * [trash-cli](https://github.com/andreafrancia/trash-cli) trash functionality for cli
+* [direnv](https://github.com/direnv/direnv) enviroment switcher for shell
 
 ## Window Manager
 

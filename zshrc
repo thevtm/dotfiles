@@ -84,6 +84,9 @@ alias v='f -e vim'
 # thefuck
 eval $(thefuck --alias)
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
