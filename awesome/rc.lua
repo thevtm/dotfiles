@@ -78,9 +78,6 @@ require("layouts")
 --- }}}
 
 
-
-
-
 --- {{{ Beautiful initialization + Theme
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -384,27 +381,27 @@ globalkeys = gears.table.join(
 	--awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end),
 
 	-- ALSA volume control
-	awful.key({ altkey }, "Up",
+	awful.key({ }, "XF86AudioRaiseVolume",
 		function ()
-			os.execute(string.format("amixer -q set %s 1%%+", my_volume.channel))
+			os.execute(string.format("amixer -q set %s 3%%+", my_volume.channel))
 			my_volume.update()
 		end),
-	awful.key({ altkey }, "Down",
+	awful.key({ }, "XF86AudioLowerVolume",
 		function ()
-			os.execute(string.format("amixer -q set %s 1%%-", my_volume.channel))
+			os.execute(string.format("amixer -q set %s 3%%-", my_volume.channel))
 			my_volume.update()
 		end),
-	awful.key({ altkey }, "m",
+	awful.key({ }, "XF86AudioMute",
 		function ()
 			os.execute(string.format("amixer -q set %s toggle", my_volume.togglechannel or my_volume.channel))
 			my_volume.update()
 		end),
-	awful.key({ altkey, "Control" }, "m",
+	awful.key({ modkey }, "XF86AudioRaiseVolume",
 		function ()
 			os.execute(string.format("amixer -q set %s 100%%", my_volume.channel))
 			my_volume.update()
 		end),
-	awful.key({ altkey, "Control" }, "0",
+	awful.key({ modkey }, "XF86AudioLowerVolume",
 		function ()
 			os.execute(string.format("amixer -q set %s 0%%", my_volume.channel))
 			my_volume.update()
@@ -416,17 +413,17 @@ globalkeys = gears.table.join(
 			awful.spawn.with_shell("mpc toggle")
 			beautiful.mpd.update()
 		end),
-	awful.key({ altkey, "Control" }, "Down",
+	awful.key({ }, "XF86AudioStop",
 		function ()
 			awful.spawn.with_shell("mpc stop")
 			beautiful.mpd.update()
 		end),
-	awful.key({ altkey, "Control" }, "Left",
+	awful.key({ }, "XF86AudioPrev",
 		function ()
 			awful.spawn.with_shell("mpc prev")
 			beautiful.mpd.update()
 		end),
-	awful.key({ altkey, "Control" }, "Right",
+	awful.key({ }, "XF86AudioNext",
 		function ()
 			awful.spawn.with_shell("mpc next")
 			beautiful.mpd.update()
