@@ -67,8 +67,8 @@ local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "termite"
 local editor       = os.getenv("EDITOR") or "vim"
-local gui_editor   = "gvim"
-local browser      = "firefox"
+local gui_editor   = "subl3"
+local browser      = "google-chrome-stable"
 
 awful.util.terminal = terminal
 
