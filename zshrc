@@ -1,3 +1,6 @@
+# Configs
+export EDITOR=vim
+
 # Disable XON/XOFF
 stty -ixon
 
