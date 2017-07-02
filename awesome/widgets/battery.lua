@@ -24,7 +24,7 @@ function M.build()
 				else
 					M.icon:set_image(beautiful.widget_battery)
 				end
-				widget:set_markup(lain.util.markup.font(beautiful.font, string.format(" %3d%% ", bat_now.perc)))
+				widget:set_markup(lain.util.markup.font(beautiful.font, string.format(" %2d%% ", bat_now.perc)))
 			else
 				widget:set_markup()
 				M.icon:set_image(beautiful.widget_ac)
