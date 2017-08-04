@@ -5,6 +5,7 @@
 * [ttf-dejavu](https://www.archlinux.org/packages/extra/any/ttf-dejavu/) base font
 * [adobe-source-code-pro-fonts](https://www.archlinux.org/packages/extra/any/adobe-source-code-pro-fonts/) default Monospace font
 * [terminus-font](https://www.archlinux.org/packages/community/any/terminus-font/) for PowerArrow (Awesome WM theme)
+* [FiraCode](https://github.com/tonsky/FiraCode) VSCode font
 * [ttf-font-awesome](https://aur.archlinux.org/packages/ttf-font-awesome/) glyphs
 
 ## Shell
