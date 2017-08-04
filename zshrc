@@ -90,6 +90,9 @@ eval $(thefuck --alias)
 # direnv
 eval "$(direnv hook zsh)"
 
+# exa
+alias ls='exa'
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
