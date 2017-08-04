@@ -1,12 +1,10 @@
 // Place your settings in this file to overwrite the default settings
 {
 
+  // Fira Code
   "editor.fontFamily": "Fira Code",
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
-
-  // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
-  "files.autoSave": "onWindowChange",
 
   // The number of spaces a tab is equal to. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
   "editor.tabSize": 2,
@@ -26,11 +24,15 @@
   // When enabled, will trim trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": true,
 
+  // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
+  "files.autoSave": "onWindowChange",
+
   "editor.quickSuggestions": {
     "other": true,
     "comments": true,
     "strings": true
   },
+  "extensions.ignoreRecommendations": false,
+  "window.zoomLevel": 0
 
-  "extensions.ignoreRecommendations": false
 }
