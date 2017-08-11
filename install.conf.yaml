@@ -6,18 +6,20 @@
 - clean: ['~', '~/.config', '~/.vim/bundle', '~/.ssh']
 
 - link:
-    ~/.zprofile: zprofile
-    ~/.zshrc : zshrc
-    ~/.xinitrc: xinitrc
-    ~/.xprofile: xinitrc
-    ~/.Xresources: Xresources
-    ~/.tmux.conf: tmux.conf
+    ~/.zprofile             : zprofile
+    ~/.zshrc                : zshrc
+    ~/.aliases              : aliases
+    ~/.xinitrc              : xinitrc
+    ~/.xprofile             : xinitrc
+    ~/.Xresources           : Xresources
+    ~/.tmux.conf            : tmux.conf
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
-    ~/.vimrc: vimrc
-    ~/.ssh/config: ssh
-    ~/.config/awesome: awesome
-    ~/.config/Code/User: VSCode
+    ~/.vimrc                : vimrc
+    ~/.ssh/config           : ssh
+    ~/.config/awesome       : awesome
+    ~/.config/Code/User     : VSCode
     ~/.config/termite/config: termite
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [vim +PluginInstall +qall, Installing Vundle plugins]
