@@ -3,14 +3,14 @@
 
   // Fira Code
   "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 12,
+  "editor.fontSize": 14,
   "editor.fontLigatures": true,
 
   // The number of spaces a tab is equal to. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
   "editor.tabSize": 2,
 
   // Insert spaces when pressing Tab. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
 
   // Controls how the editor should render whitespace characters, possibilities are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
   "editor.renderWhitespace": "boundary",
