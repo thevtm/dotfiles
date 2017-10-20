@@ -232,7 +232,7 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
 	-- Take a screenshot
 	-- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-	awful.key({                   }, "Print", function() os.execute("screenshot") end),
+	awful.key({                   }, "Print", function() os.execute("scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Screenshots/'") end),
 
 	-- Hotkeys
 	awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,

@@ -30,6 +30,7 @@
 * [awesome](https://wiki.archlinux.org/index.php/Awesome) tiled window manager
 * [rofi](https://github.com/DaveDavenport/rofi) window switcher, run dialog, etc
 * [unclutter](https://wiki.archlinux.org/index.php/unclutter) hides mouse when you don't need it
+* [scrot](https://github.com/dreamer/scrot) screen shot
 
 ## Network
 
