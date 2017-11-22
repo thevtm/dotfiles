@@ -100,7 +100,7 @@ local taglist = require("widgets.taglist")
 -- Tasklist
 local tasklist = require("widgets.tasklist")
 
--- Binary clock
+-- Text clock
 local clock = require('widgets.clock')
 local my_clock = clock.build()
 
@@ -192,7 +192,7 @@ function beautiful.at_screen_connect(s)
 			wibox.container.background(wibox.container.margin(my_volume.bar, 7, 7, 5, 5), volume.bg_color),
 
 			arrow(volume.bg_color, clock.bg_color),
-			wibox.container.background(wibox.container.margin(my_clock.widget, 4, 8), clock.bg_color),
+			wibox.container.background(wibox.container.margin(my_clock, 4, 8), clock.bg_color),
 
 			arrow(clock.bg_color, "alpha"),
 
