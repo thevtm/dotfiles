@@ -5,3 +5,6 @@
 # Make
 alias m='make'
 
+# Trash-CLI
+alias t='trash-put'
+
