@@ -22,6 +22,7 @@
 * [direnv](https://github.com/direnv/direnv) enviroment switcher for shell
 * [jq](https://stedolan.github.io/jq/) jq is like sed for JSON data
 * [exa](https://github.com/ogham/exa) better ls
+* [tldr](https://tldr.sh) better man
 
 ## Window Manager
 
