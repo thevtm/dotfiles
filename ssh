@@ -1,5 +1,13 @@
+##########
+# GLOBAL #
+##########
+
 Host *
     ServerAliveInterval 300
     ServerAliveCountMax 2
-    Include "~/.ssh/config.local"
     AddKeysToAgent yes
+    Include "~/.ssh/config.local"
+
+#####################################
+# ADD DEFINITIONS TO "config.local" #
+#####################################
