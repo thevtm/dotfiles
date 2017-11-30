@@ -12,6 +12,7 @@
     ~/.xinitrc              : xinitrc
     ~/.xprofile             : xinitrc
     ~/.Xresources           : Xresources
+    ~/.gitconfig            : gitconfig
     ~/.tmux.conf            : tmux.conf
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc                : vimrc
