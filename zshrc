@@ -76,6 +76,8 @@ COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
+# Less
+export LESS='--RAW-CONTROL-CHARS --LINE-NUMBERS --no-init'
 
 # trash-cli
 alias rm='echo "This is not the command you are looking for. Use trash-put."; false'
