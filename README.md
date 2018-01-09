@@ -16,13 +16,14 @@
 ### Productivity
 
 * [fasd](https://github.com/clvv/fasd) offers quick access to files and directories for POSIX shells
+* [fd](https://github.com/sharkdp/fd) better and faster `find`
 * [thefuck](https://github.com/nvbn/thefuck) corrects your previous console command
 * [xsel](https://github.com/kfish/xsel) shell to clipboard
 * [trash-cli](https://github.com/andreafrancia/trash-cli) trash functionality for cli
 * [direnv](https://github.com/direnv/direnv) enviroment switcher for shell
 * [jq](https://stedolan.github.io/jq/) jq is like sed for JSON data
-* [exa](https://github.com/ogham/exa) better ls
-* [tldr](https://tldr.sh) better man
+* [exa](https://github.com/ogham/exa) better `ls`
+* [tldr](https://tldr.sh) better `man`
 
 ## Window Manager
 
