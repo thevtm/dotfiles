@@ -16,6 +16,8 @@
 ### Productivity
 
 * [fasd](https://github.com/clvv/fasd) offers quick access to files and directories for POSIX shells
+* [fzy](https://github.com/jhawthorn/fzy) fuzzy selector
+* [zsh-fzy](https://github.com/aperezdc/zsh-fzy) zsh plugin that uses fzy for certain fuzzy matching operations
 * [fd](https://github.com/sharkdp/fd) better and faster `find`
 * [thefuck](https://github.com/nvbn/thefuck) corrects your previous console command
 * [xsel](https://github.com/kfish/xsel) shell to clipboard
