@@ -95,6 +95,9 @@ eval "$(direnv hook zsh)"
 # exa
 alias ls='exa'
 
+# fd
+alias find='fd'
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
