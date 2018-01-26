@@ -8,3 +8,7 @@ alias m='make'
 # Trash-CLI
 alias t='trash-put'
 
+# Kill process using fuzzy selector
+fkill () {
+  ps aux | fzy | awk '{ print $2 }' | xargs kill
+}
