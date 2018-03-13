@@ -19,7 +19,6 @@
     ~/.vimrc                : vimrc
     ~/.ssh/config           : ssh
     ~/.config/awesome       : awesome
-    ~/.config/Code/User     : VSCode
     ~/.config/termite/config: termite
 
 - shell:
