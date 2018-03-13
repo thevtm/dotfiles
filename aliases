@@ -12,3 +12,9 @@ alias t='trash-put'
 fkill () {
   ps aux | fzy | awk '{ print $2 }' | xargs kill
 }
+
+# Git fuzzy switch branches
+fgc () {
+  git checkout $(git branch | fzy)
+}
+
