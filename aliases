@@ -18,3 +18,5 @@ fgc () {
   git checkout $(git branch | fzy)
 }
 
+# Serve the current directory as HTTP
+alias serve='ruby -run -e httpd . -p 8000'
