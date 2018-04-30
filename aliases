@@ -20,3 +20,7 @@ fgc () {
 
 # Serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000'
+
+# ripgrep
+alias grep='rg'
+
