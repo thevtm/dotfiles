@@ -234,6 +234,9 @@ globalkeys = gears.table.join(
 	-- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
 	awful.key({                   }, "Print", function() os.execute("scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Screenshots/'") end),
 
+	-- Lock screen
+	awful.key({ modkey,           }, "l", function() os.execute("i3lock --ignore-empty-password --color 000000") end),
+
 	-- Hotkeys
 	awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
 				{description="show help", group="awesome"}),

@@ -37,6 +37,7 @@
 * [rofi](https://github.com/DaveDavenport/rofi) window switcher, run dialog, etc
 * [unclutter](https://wiki.archlinux.org/index.php/unclutter) hides mouse when you don't need it
 * [scrot](https://github.com/dreamer/scrot) screen shot
+* [i3lock](https://github.com/i3/i3lock) screen lock
 
 ## Network
 
