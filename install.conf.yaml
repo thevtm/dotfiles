@@ -10,7 +10,6 @@
     ~/.zshrc                : zshrc
     ~/.aliases              : aliases
     ~/.font.conf            : font.conf
-    ~/.gitconfig            : gitconfig
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc                : vimrc
     ~/.ssh/config           : ssh
