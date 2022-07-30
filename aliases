@@ -47,3 +47,8 @@ fgc () {
 function frt() {
   eval $(rails -T | tail -n +2 | fzf)
 }
+
+# capture the output of a command so it can be retrieved with ret
+alias cap='tee /tmp/capture.out;'
+# return the output of the most recent command that was captured by cap
+alias ret='cat /tmp/capture.out;'
