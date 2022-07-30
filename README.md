@@ -1,5 +1,11 @@
 # Vini's Dotfiles
 
+## Usage
+
+```sh
+./install
+```
+
 ## Fonts
 
 * [ttf-dejavu](https://www.archlinux.org/packages/extra/any/ttf-dejavu/) base font
