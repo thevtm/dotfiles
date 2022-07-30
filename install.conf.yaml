@@ -9,17 +9,11 @@
     ~/.zprofile             : zprofile
     ~/.zshrc                : zshrc
     ~/.aliases              : aliases
-    ~/.xinitrc              : xinitrc
-    ~/.xprofile             : xinitrc
-    ~/.Xresources           : Xresources
     ~/.font.conf            : font.conf
     ~/.gitconfig            : gitconfig
-    ~/.tmux.conf            : tmux.conf
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc                : vimrc
     ~/.ssh/config           : ssh
-    ~/.config/awesome       : awesome
-    ~/.config/termite/config: termite
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

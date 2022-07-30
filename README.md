@@ -1,4 +1,4 @@
-# VTM Dotfiles
+# Vini's Dotfiles
 
 ## Fonts
 
@@ -28,16 +28,6 @@
 * [tldr](https://tldr.sh) better `man`
 * [httpie](https://httpie.org/) better cURL
 * [ripgrep](https://github.com/BurntSushi/ripgrep) ripgrep
-
-## Window Manager
-
-* [xorg-server](https://wiki.archlinux.org/index.php/xorg) display server
-* [xorg-xinit](https://wiki.archlinux.org/index.php/Xinit) xorg initialization
-* [awesome](https://wiki.archlinux.org/index.php/Awesome) tiled window manager
-* [rofi](https://github.com/DaveDavenport/rofi) window switcher, run dialog, etc
-* [unclutter](https://wiki.archlinux.org/index.php/unclutter) hides mouse when you don't need it
-* [scrot](https://github.com/dreamer/scrot) screen shot
-* [i3lock](https://github.com/i3/i3lock) screen lock
 
 ## Network
 
