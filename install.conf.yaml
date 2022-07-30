@@ -14,6 +14,7 @@
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
     ~/.vimrc                : vimrc
     ~/.ssh/config           : ssh
+    ~/.Xmodmap              : Xmodmap
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
