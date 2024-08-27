@@ -32,7 +32,7 @@ alias find='fd''
 
 # Git
 alias gcwip='git add --all . && git commit -m "[skip-ci] WIP"'
-alias gu='git reset --soft HEAD~1'
+alias gu='git --no-pager log -1; git reset --soft HEAD~1'
 alias gca='git commit --amend --no-edit'
 alias gs='git stash'
 alias gsp='git stash pop'
