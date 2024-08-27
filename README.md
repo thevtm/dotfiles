@@ -32,7 +32,7 @@
 * [trash-cli](https://github.com/andreafrancia/trash-cli) trash functionality for cli
 * [direnv](https://github.com/direnv/direnv) enviroment switcher for shell
 * [jq](https://stedolan.github.io/jq/) jq is like sed for JSON data
-* [exa](https://github.com/ogham/exa) better `ls`
+* [eza](https://github.com/eza-community/eza) better `ls`
 * [tldr](https://tldr.sh) better `man`
 * [httpie](https://httpie.org/) better cURL
 * [ripgrep](https://github.com/BurntSushi/ripgrep) ripgrep

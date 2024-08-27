@@ -24,8 +24,8 @@ alias grep='rg'
 alias copy='xsel -ib'
 alias paste='xsel -ob
 
-# exa
-alias ls='exa'
+# eza
+alias ls='eza'
 
 # fd
 alias find='fd''
