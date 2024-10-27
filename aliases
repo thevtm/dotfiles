@@ -22,13 +22,13 @@ alias grep='rg'
 
 # xsel
 alias copy='xsel -ib'
-alias paste='xsel -ob
+alias paste='xsel -ob'
 
 # eza
 alias ls='eza'
 
 # fd
-alias find='fd''
+alias find='fd'
 
 # Git
 alias gcwip='git add --all . && git commit -m "[skip-ci] WIP"'
