@@ -9,3 +9,5 @@ keycode  16 = ampersand 7 ampersand 7
 keycode  17 = asterisk 8 asterisk 8
 keycode  18 = parenleft 9 parenleft 9
 keycode  19 = parenright 0 parenright 0
+! keycode  20 = underscore minus underscore minus
+

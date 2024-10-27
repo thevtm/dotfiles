@@ -8,4 +8,4 @@ PATH=$HOME/.cargo/bin:$PATH
 [[ -f ~/.local/.zprofile ]] && source ~/.local/.zprofile
 
 # Apply changes to keyboard key mapping
-xmodmap ~/.Xmodmap
+# xmodmap ~/.Xmodmap

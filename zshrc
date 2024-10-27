@@ -149,3 +149,53 @@ export PATH="$HOME/.local/bin:$PATH"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.local/.aliases ]] && source ~/.local/.aliases
+
+########################################### testing
+# Apply changes to keyboard key mapping
+# (removed due to it turning on and off randomly)
+# xmodmap ~/.Xmodmap
+##########################################
+
+#######################################
+# Some usefull kubectl commands
+#######################################
+function kube-find-namespace() {
+  kubectl get namespaces | tail -n +2 | fzf -q "$1" | awk '/(.*)/ {print $1}'
+}
+
+function kube-app-pod() {
+  local namespace
+  namespace=$1
+  kubectl get pods --field-selector status.phase=Running -n "$namespace" | awk '/(.*)-app-(.*) / {print $1}' | head -n 1
+}
+
+function kube-rc() {
+  local namespace
+  namespace="$(kube-find-namespace "$1")"
+  local pod
+  pod="$(kube-app-pod "$namespace")"
+  echo "Dropping into rails console on $pod in $namespace"
+  kubectl exec -it "$pod" -n "$namespace" -- rails c
+}
+
+function kube-ssh() {
+  local namespace
+  namespace="$(kube-find-namespace "$1")"
+  local pod
+  pod="$(kube-app-pod "$namespace")"
+  echo "Dropping into bash on $pod in $namespace"
+  kubectl exec -it "$pod" -n "$namespace" bash
+}
+
+function kube-log() {
+  local namespace
+  namespace="$(kube-find-namespace "$1")"
+  local pod
+  pod="$(kube-app-pod "$namespace")"
+  echo "Tailing logs on $pod in $namespace"
+  kubectl logs "$pod" -n "$namespace" -f
+}
+
+alias kssh="kube-ssh"
+alias krc="kube-rc"
+alias klog="kube-log"
