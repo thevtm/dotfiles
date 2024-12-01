@@ -46,6 +46,10 @@
 
 [ALSA](https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture): [alsa-utils](https://www.archlinux.org/packages/extra/i686/alsa-utils/)
 
+## Other
+
+- [asdf-vm](https://asdf-vm.com/) generic version manager for developers
+
 ## Config
 
 ### Quake Terminal
