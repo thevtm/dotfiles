@@ -61,3 +61,18 @@ tdrop -n 1 --width 100% --height 35% --post-map-hook 'wmctrl -r "Alacritty - Dro
 # Bottom terminal
 tdrop -n 2 -y 63% --width 100% --height 35% --post-map-hook 'wmctrl -r "Alacritty - Drop Down - Bottom" -b add,above,sticky' alacritty --title 'Alacritty - Drop Down - Bottom'
 ```
+
+### Git
+
+```ini
+[user]
+    name = Bob
+    email = bob@example.com
+    signingkey = 123456789
+
+[commit]
+    gpgsign = true
+
+[includeIf "gitdir:/home/bob/Documents/github/"]
+    path = /home/bob/Documents/github/.gitconfig
+```
