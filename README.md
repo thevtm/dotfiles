@@ -76,3 +76,10 @@ tdrop -n 2 -y 63% --width 100% --height 35% --post-map-hook 'wmctrl -r "Alacritt
 [includeIf "gitdir:/home/bob/Documents/github/"]
     path = /home/bob/Documents/github/.gitconfig
 ```
+
+## CLI Cheat Sheet
+
+```sh
+# System Update
+yay -Syu --noconfirm
+```
