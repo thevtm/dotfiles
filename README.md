@@ -54,13 +54,7 @@
 
 ### Quake Terminal
 
-```shell
-# Top terminal
-tdrop -n 1 --width 100% --height 35% --post-map-hook 'wmctrl -r "Alacritty - Drop Down - Top" -b add,above,sticky' alacritty --title 'Alacritty - Drop Down - Top'
-
-# Bottom terminal
-tdrop -n 2 -y 63% --width 100% --height 35% --post-map-hook 'wmctrl -r "Alacritty - Drop Down - Bottom" -b add,above,sticky' alacritty --title 'Alacritty - Drop Down - Bottom'
-```
+[Gnome Extension](https://extensions.gnome.org/extension/6307/quake-terminal/)
 
 ### Git
 
