@@ -58,17 +58,19 @@ zinit snippet OMZP::sudo
 zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
 
+# Load history-substring-search before fast-syntax-highlighting so its
+# widgets exist when fsh tries to wrap them.
 zinit ice wait lucid
-zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-history-substring-search
+
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait lucid blockf atload'zicompinit; zicdreplay'
 zinit light zsh-users/zsh-completions
-
-zinit ice wait lucid
-zinit light zsh-users/zsh-history-substring-search
 
 # ---------- 4. Tool integrations ----------
 # fzf
