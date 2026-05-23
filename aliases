@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 ###########
 # Aliases #
@@ -6,19 +7,19 @@
 # Make
 alias m='make'
 
+# System update
+alias system-update='yay -Syu --cleanafter --answerdiff=None --answeredit=None'
+
 # Trash-CLI
 # alias t='trash-put'
 
 # Kill process using fuzzy selector
 fkill () {
-  ps aux | fzy | awk '{ print $2 }' | xargs kill
+  ps aux | fzf | awk '{ print $2 }' | xargs kill
 }
 
-# Serve the current directory as HTTP
-alias serve='ruby -run -e httpd . -p 8000'
-
 # ripgrep
-alias grep='rg'
+# alias grep='rg'
 
 # xsel
 alias copy='xsel -ib'
@@ -28,7 +29,7 @@ alias paste='xsel -ob'
 alias ls='eza'
 
 # fd
-alias find='fd'
+# alias find='fd'
 
 # Git
 alias gcwip='git add --all . && git commit -m "[skip-ci] WIP"'

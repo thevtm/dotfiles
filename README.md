@@ -16,18 +16,15 @@
 
 ## Shell / Terminal
 
-* [zplug](https://github.com/zplug/zplug) plugin manager
-* [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) theme
+* [zinit](https://github.com/zdharma-continuum/zinit) plugin manager
+* [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme
 * [Alacritty](https://github.com/alacritty/alacritty)
-* [tdrop](https://github.com/noctuid/tdrop) Quake Terminal
 
 ### Productivity
 
-* [fasd](https://github.com/clvv/fasd) offers quick access to files and directories for POSIX shells
-* [fzy](https://github.com/jhawthorn/fzy) fuzzy selector
-* [zsh-fzy](https://github.com/aperezdc/zsh-fzy) zsh plugin that uses fzy for certain fuzzy matching operations
+* [zoxide](https://github.com/ajeetdsouza/zoxide) smarter `cd` that jumps to frequent directories
+* [fzf](https://github.com/junegunn/fzf) fuzzy finder
 * [fd](https://github.com/sharkdp/fd) better and faster `find`
-* [thefuck](https://github.com/nvbn/thefuck) corrects your previous console command
 * [xsel](https://github.com/kfish/xsel) shell to clipboard
 * [trash-cli](https://github.com/andreafrancia/trash-cli) trash functionality for cli
 * [direnv](https://github.com/direnv/direnv) enviroment switcher for shell
@@ -74,6 +71,6 @@
 ## CLI Cheat Sheet
 
 ```sh
-# System Update
-yay -Syu --noconfirm
+# System update (alias defined in ./aliases)
+system-update
 ```

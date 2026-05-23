@@ -1,201 +1,93 @@
-# Configs
+# ~/.zshrc — managed with zinit + powerlevel10k
+# Layout:
+#   1. Instant prompt (must stay near the top)
+#   2. Environment
+#   3. Plugin manager (zinit) + plugins
+#   4. Tool integrations (fzf, zoxide, direnv)
+#   5. Keybindings & options
+#   6. Local overrides
+
+# ---------- 1. p10k instant prompt ----------
+# Keep this block first — it lets the prompt render before plugins finish loading.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ---------- 2. Environment ----------
 export EDITOR='vim'
-
-# Disable XON/XOFF
-stty -ixon
-
-# Install zplug if not presente
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-fi
-
-# Source zplug/zplug
-source ~/.zplug/init.zsh
-
-#
-# Declare custom theme segments here
-# https://github.com/Powerlevel9k/powerlevel9k#custom_command
-#
-custom::is_git() {
-  # See https://git.io/fp8Pa for related discussion
-  [[ $(command git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
-}
-custom_dir() {
-  local 'dir' 'trunc_prefix'
-  # Threat repo root as a top-level directory or not
-  if custom::is_git; then
-    local git_root=$(git rev-parse --show-toplevel)
-    dir="$git_root:t${${PWD:A}#$~~git_root}"
-  else
-    dir="%~"
-  fi
-  echo "$dir"
-}
-
-
-###########
-# PLUGINS #
-###########
-
-# oh-my-zsh
-export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
-zplug "plugins/gnu-utils", from:oh-my-zsh
-# zplug "plugins/archlinux", from:oh-my-zsh, if:"which pacman"
-zplug "plugins/systemd", from:oh-my-zsh, if:"which systemctl"
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/grep", from:oh-my-zsh
-# zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/node", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/yarn", from:oh-my-zsh
-# zplug "plugins/rsync", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-# #zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/ruby", from:oh-my-zsh
-zplug "plugins/rails", from:oh-my-zsh
-zplug "plugins/bundler", from:oh-my-zsh
-
-
-# zsh-user
-zplug "zsh-users/zsh-completions", defer:3
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
-zplug "zsh-users/zsh-autosuggestions", defer:3
-zplug "zsh-users/zsh-history-substring-search", defer:2
-
-# fzy
-zplug "aperezdc/zsh-fzy"
-
-
-# theme
-POWERLEVEL9K_MODE='awesome-fontconfig'
-
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh custom_dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-
-export DEFAULT_USER="$USER"
-
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load # --verbose
-
-# Autocomplete from man pages
-#zstyle ':completion:*:manuals'    separate-sections true
-#zstyle ':completion:*:manuals.*'  insert-sections   true
-#zstyle ':completion:*:man:*'      menu yes select
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-source $ZSH/oh-my-zsh.sh
-
-# zsh-fzy
-# ALT-C: cd into the selected directory
-bindkey '\ec' fzy-cd-widget
-
-# CTRL-T: Place the selected file path in the command line
-zstyle :fzy:file command rg --files
-bindkey '^T'  fzy-file-widget
-
-# CTRL-R: Place the selected command from history in the command line
-# bindkey '^R'  fzy-history-widget
-
-# CTRL-P: Place the selected process ID in the command line
-bindkey '^P'  fzy-proc-widget
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# fzf
-source '/usr/share/fzf/key-bindings.zsh'
-
-# Less
-export LESS='--RAW-CONTROL-CHARS --LINE-NUMBERS --no-init'
-
-# fasd
-eval "$(fasd --init auto)"
-alias v='f -e vim'
-
-# thefuck
-eval $(thefuck --alias)
-
-# yarn
-export PATH="$(yarn global bin):$PATH"
-
-# Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LESS='--RAW-CONTROL-CHARS --LINE-NUMBERS --no-init'
+export DEFAULT_USER="$USER"
 
-# local bins
 export PATH="$HOME/.local/bin:$PATH"
 
-# Local config
-[[ -f ~/.local/.zshrc ]] && source ~/.local/.zshrc
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
+# Disable XON/XOFF so Ctrl-S / Ctrl-Q are free
+stty -ixon
+
+# ---------- 3. zinit + plugins ----------
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [[ ! -d $ZINIT_HOME ]]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Theme — load first so instant prompt has its config
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+
+# oh-my-zsh snippets (load only what we use, not the whole framework)
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::systemd
+zinit snippet OMZP::docker
+zinit snippet OMZP::node
+zinit snippet OMZP::npm
+
+# zsh-users essentials (deferred = loaded after first prompt)
+zinit wait lucid for \
+  atinit"zicompinit; zicdreplay" \
+    zsh-users/zsh-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions \
+  zsh-users/zsh-history-substring-search
+
+# ---------- 4. Tool integrations ----------
+# fzf
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -f /usr/share/fzf/completion.zsh   ]] && source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# zoxide (replaces fasd) — `z <dir>` to jump, `zi` for interactive
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+
+# direnv
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
+# turso
+[[ -f "$HOME/.turso/env" ]] && source "$HOME/.turso/env"
+
+# ---------- 5. Options & keybindings ----------
+COMPLETION_WAITING_DOTS="true"
+
+# history-substring-search bindings (up/down on partial match)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# ---------- 6. p10k config & local overrides ----------
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+[[ -f ~/.local/.zshrc  ]] && source ~/.local/.zshrc
+[[ -f ~/.aliases       ]] && source ~/.aliases
 [[ -f ~/.local/.aliases ]] && source ~/.local/.aliases
-
-########################################### testing
-# Apply changes to keyboard key mapping
-# (removed due to it turning on and off randomly)
-# xmodmap ~/.Xmodmap
-##########################################
-
-#######################################
-# Some usefull kubectl commands
-#######################################
-function kube-find-namespace() {
-  kubectl get namespaces | tail -n +2 | fzf -q "$1" | awk '/(.*)/ {print $1}'
-}
-
-function kube-app-pod() {
-  local namespace
-  namespace=$1
-  kubectl get pods --field-selector status.phase=Running -n "$namespace" | awk '/(.*)-app-(.*) / {print $1}' | head -n 1
-}
-
-function kube-rc() {
-  local namespace
-  namespace="$(kube-find-namespace "$1")"
-  local pod
-  pod="$(kube-app-pod "$namespace")"
-  echo "Dropping into rails console on $pod in $namespace"
-  kubectl exec -it "$pod" -n "$namespace" -- rails c
-}
-
-function kube-ssh() {
-  local namespace
-  namespace="$(kube-find-namespace "$1")"
-  local pod
-  pod="$(kube-app-pod "$namespace")"
-  echo "Dropping into bash on $pod in $namespace"
-  kubectl exec -it "$pod" -n "$namespace" bash
-}
-
-function kube-log() {
-  local namespace
-  namespace="$(kube-find-namespace "$1")"
-  local pod
-  pod="$(kube-app-pod "$namespace")"
-  echo "Tailing logs on $pod in $namespace"
-  kubectl logs "$pod" -n "$namespace" -f
-}
-
-alias kssh="kube-ssh"
-alias krc="kube-rc"
-alias klog="kube-log"
