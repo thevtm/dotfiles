@@ -40,27 +40,34 @@ if [[ ! -d $ZINIT_HOME ]]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Enable completion for the `zinit` command itself
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
 # Theme — load first so instant prompt has its config
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 # oh-my-zsh snippets (load only what we use, not the whole framework)
-zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::systemd
-zinit snippet OMZP::docker
-zinit snippet OMZP::node
-zinit snippet OMZP::npm
 
-# zsh-users essentials (deferred = loaded after first prompt)
-zinit wait lucid for \
-  atinit"zicompinit; zicdreplay" \
-    zsh-users/zsh-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions \
-  zsh-users/zsh-history-substring-search
+# Deferred plugins — each loads after first prompt (wait lucid).
+# Compinit runs via atload on zsh-completions so its fpath additions are picked up.
+
+zinit ice wait lucid
+zinit light Aloxaf/fzf-tab
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid blockf atload'zicompinit; zicdreplay'
+zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-history-substring-search
 
 # ---------- 4. Tool integrations ----------
 # fzf
