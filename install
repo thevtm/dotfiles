@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Symlink dotfiles into $HOME. Idempotent — re-run any time.
+
+set -euo pipefail
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# target_relative_to_home : source_relative_to_repo
+links=(
+  ".zprofile:zprofile"
+  ".zshrc:zshrc"
+  ".p10k.zsh:p10k.zsh"
+  ".aliases:aliases"
+  ".font.conf:font.conf"
+  ".ssh/config:ssh"
+  ".Xmodmap:Xmodmap"
+)
+
+for entry in "${links[@]}"; do
+  target="$HOME/${entry%%:*}"
+  source="$BASEDIR/${entry##*:}"
+
+  mkdir -p "$(dirname "$target")"
+  ln -sfn "$source" "$target"
+  echo "linked $target -> $source"
+done
