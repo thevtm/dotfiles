@@ -29,8 +29,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# Disable XON/XOFF so Ctrl-S / Ctrl-Q are free
-stty -ixon
+# Disable XON/XOFF so Ctrl-S / Ctrl-Q are free (interactive shells only)
+[[ -o interactive ]] && stty -ixon 2>/dev/null
 
 # ---------- 3. zinit + plugins ----------
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
