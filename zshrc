@@ -92,6 +92,15 @@ COMPLETION_WAITING_DOTS="true"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Home / End (Alacritty + most terminals)
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[OH' beginning-of-line
+bindkey '^[OF' end-of-line
+
+# Delete
+bindkey '^[[3~' delete-char
+
 # ---------- 6. p10k config & local overrides ----------
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
