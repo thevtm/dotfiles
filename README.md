@@ -71,6 +71,6 @@
 ## CLI Cheat Sheet
 
 ```sh
-# System update (alias defined in ./aliases)
-system-update
+# System Update
+yay -Syu --cleanafter --answerdiff=None --answeredit=None
 ```
