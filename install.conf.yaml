@@ -8,6 +8,7 @@
 - link:
     ~/.zprofile             : zprofile
     ~/.zshrc                : zshrc
+    ~/.p10k.zsh             : p10k.zsh
     ~/.aliases              : aliases
     ~/.font.conf            : font.conf
     ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
