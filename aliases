@@ -31,14 +31,6 @@ alias ls='eza'
 # fd
 # alias find='fd'
 
-# Git
-alias gcwip='git add --all . && git commit -m "[skip-ci] WIP"'
-alias gu='git --no-pager log -1; git reset --soft HEAD~1'
-alias gca='git commit --amend --no-edit'
-alias gs='git stash'
-alias gsp='git stash pop'
-alias grh='git reset --hard'
-
 # Git fuzzy switch branches
 fgc () {
   git checkout $(git branch | fzf)
