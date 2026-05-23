@@ -14,6 +14,8 @@ links=(
   ".font.conf:font.conf"
   ".ssh/config:ssh"
   ".Xmodmap:Xmodmap"
+  ".gitconfig:gitconfig"
+  ".config/alacritty/alacritty.toml:alacritty.toml"
 )
 
 for entry in "${links[@]}"; do

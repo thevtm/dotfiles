@@ -30,6 +30,7 @@
 * [direnv](https://github.com/direnv/direnv) enviroment switcher for shell
 * [jq](https://stedolan.github.io/jq/) jq is like sed for JSON data
 * [eza](https://github.com/eza-community/eza) better `ls`
+* [bat](https://github.com/sharkdp/bat) better `cat` with syntax highlighting
 * [tldr](https://tldr.sh) better `man`
 * [httpie](https://httpie.org/) better cURL
 * [ripgrep](https://github.com/BurntSushi/ripgrep) ripgrep
@@ -52,21 +53,6 @@
 ### Quake Terminal
 
 [Gnome Extension](https://extensions.gnome.org/extension/6307/quake-terminal/)
-
-### Git
-
-```ini
-[user]
-    name = Bob
-    email = bob@example.com
-    signingkey = 123456789
-
-[commit]
-    gpgsign = true
-
-[includeIf "gitdir:/home/bob/Documents/github/"]
-    path = /home/bob/Documents/github/.gitconfig
-```
 
 ## CLI Cheat Sheet
 

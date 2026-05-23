@@ -89,6 +89,12 @@ command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 # ---------- 5. Options & keybindings ----------
 COMPLETION_WAITING_DOTS="true"
 
+# History: keep more, share across sessions, skip dupes
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
+
 # history-substring-search bindings (up/down on partial match)
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
