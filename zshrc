@@ -49,6 +49,7 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 # oh-my-zsh snippets (load only what we use, not the whole framework)
+zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 
 # Deferred plugins — each loads after first prompt (wait lucid).
